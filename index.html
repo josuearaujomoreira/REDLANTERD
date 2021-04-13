@@ -1,12 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    chama
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Red Lantern</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <!--Verificando o meu formulário-->
+        <script language="javascript">
+            function valida_dados (nomeform)
+            {
+                if (nomeform.nome.value=="")//valores em brancos
+                {
+                    alert ("Por favor digite o nome.");
+                    return false;
+                }
+                if (nomeform.senha.value=="")//valores em brancos
+                {
+                    alert ("Por favor digite uma senha.");
+                    return false;
+                }
+                if (nomeform.estado.value=="")//valores em brancos
+                {
+                    alert ("Por favor digite um estado.");
+                    return false;
+                }
+                if (nomeform.sobrenome.value=="")//valores em brancos
+                {
+                    alert ("Por favor digite o sobrenome.");
+                    return false;
+                }
+                if (nomeform.email.value=="" || nomeform.email.value.indexOf('@', 0) == -1 || nomeform.email.value.indexOf('.', 0) == -1)//Este m&#233;todo retorna -1 se o valor a ser pesquisado nunca ocorre
+                {
+                    alert ("E-mail inválido.");
+                    return false;
+                }
+                if (nomeform.estado.value ==0)//se caso ele n&#227;o selecionar nenhum
+                {
+                    alert ("Por favor selecione o estado.");
+                    return false;
+                }
+                if (nomeform.cidade.value ==0)//se caso ele n&#227;o selecionar nenhum
+                {
+                    alert ("Por favor digite um estado.");
+                    return false;
+                }
+                if (nomeform.pais.value ==0)//se caso ele n&#227;o selecionar nenhum
+                {
+                    alert ("Por favor digite um País.");
+                    return false;
+                }
+                if (nomeform.login.value.length<5 || nomeform.login.value.length>15)//verifica o comprimento da string 
+                {
+                    alert ("O login deve conter entre 5 e 15 caracteres.");
+                    return false;
+                }
+                if (nomeform.login.value.indexOf(' ', 0) != -1)//retorna -1 se o valor a ser pesquisado nunca ocorre. Se for diferente de -1 significa que que ocorreu presen&#231;a de espa&#231;os em brancos    
+                {
+                    alert ("O login n&#227;o pode conter espa&#231;os em branco.");
+                    return false;
+                }
+                if (nomeform.senha.value.length<5 || nomeform.senha.value.length>15)//verifica o comprimento da string
+                {
+                    alert ("A senha deve conter entre 5 e 15 caracteres.");
+                    return false;
+                }
+                if (nomeform.cidade.value.length<5 || nomeform.senha.value.length>15)//verifica o comprimento da string
+                    {
+                        alert (" a cidade deve conter emtre 5 e 15 caracteres.");
+                        return false;
+                    }
+                
+                if (nomeform.senha.value.indexOf(' ', 0) != -1)//retorna -1 se o valor a ser pesquisado nunca ocorre. Se for diferente de -1 significa que que ocorreu presen&#231;a de espa&#231;os em brancos    
+                {
+                    alert ("A senha n&#227;o pode conter espa&#231;os em branco.");
+                    return false;
+                }
+                if (nomeform.senha.value != nomeform.confirmacao.value)// confere as senhas 
+                {
+                    alert ("Senhas n&#227;o conferem. Voc&#234; digitou duas senhas diferentes.");
+                    return false;
+                }
+            return true;
+            }
+            </script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/logologo.svg" alt="" id="logosite" /></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Projetos</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">História</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Equipe</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Bem Vindos a Red Lantern</div>
+                <div class="masthead-heading text-uppercase">#OMUNDOGRÁFICO</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">NAVEGAR</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Serviços</h2>
+                    <h3 class="section-subheading text-muted"> Conheça nossos serviços de Webdesigner e vendas automatizadas. Ferramentas de última geração, buscando sempre o melhor para você e sua empresa!</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">E-Commerce</h4>
+                        <p class="text-muted">Não tem idéia de como iniciar um projeto web. Precisa de um site mais simples, ou de um mais avançado? Quer melhorar o acesso no seu atual site? Eu mostro o que pode ser feito de acordo com o seu Bolso!.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Design Responsivo</h4>
+                        <p class="text-muted">Layout é o desenho que define como será o visual do seu site aliado a arquitetura de informação e técnicas avançadas de design para web. Esse serviço é o inicio do seu projeto web. Veja meu portfólio os layouts que já projetei.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Segurança Web</h4>
+                        <p class="text-muted">Assegurar-se de que seu website ou sua aplicação web aberta esteja segura é um ponto crucial. Até pequenos bugs no seu código podem resultar em vazamento de informações.Todos nossos projetos conta com segurança altomatizada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Projetos Entregues</h2>
+                    <h3 class="section-subheading text-muted">Maiores Projetos</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Web Roupas</div>
+                                <div class="portfolio-caption-subheading text-muted">-->Vendas Oline</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Web Turismo</div>
+                                <div class="portfolio-caption-subheading text-muted">-->Compras de Viagens</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Web admin </div>
+                                <div class="portfolio-caption-subheading text-muted">-->Gerencia de negócio</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Fotografia</div>
+                                <div class="portfolio-caption-subheading text-muted">-->Portfólios de Apresentação</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"> Web design</div>
+                                <div class="portfolio-caption-subheading text-muted">-->Plataforma de Web design</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Murais históricos</div>
+                                <div class="portfolio-caption-subheading text-muted">-->Colagens de Fotos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Linha do Tempo </h2>
+                    <h3 class="section-subheading text-muted">NOSSA HISTÓRIA DE FORMA RESUMIDA!</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2009-2011</h4>
+                                <h4 class="subheading">INICIO </h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Com o crescimento no número de desempregados, muitas pessoas que se encontram nessa situação já projetam a realização do sonho de ter um negócio próprio, infelizmente, boa parcela dos que se arriscam nesse projeto encontram dificuldades, principalmente em relação aos gastos e falta de planejamento.
+
+                            </p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Abril-2012</h4>
+                                <h4 class="subheading">Inovações</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">O design tem adquirido um caráter progressivamente interativo. Mais do que nunca, as pessoas querem se envolvem com aquilo que veem e, por causa desse aspecto, a realidade aumentada (RA ou AR) tem ganhado proporção.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Dezembro 2012</h4>
+                                <h4 class="subheading">A mudança de visão</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Ter visão empreendedora significa também estar ciente de seus pontos fortes e, ainda mais importante, de seus pontos fracos. Enumere as qualidades que você tem e que podem te auxiliar a trilhar o caminho do empreendedorismo, como liderança ou capacidade de lidar com pessoas, por exemplo.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Julho 2014</h4>
+                                <h4 class="subheading">Expansão do Negócio </h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted"></p>Expansão de mercado é um termo que jamais deve sair do foco dos empreendedores, não importa o tamanho da empresa. Enfrentar novos desafios para ampliar a participação em um mercado, para abrir uma loja ou mesmo para contratar o primeiro funcionário faz parte do dia a dia de quem toca um negócio próprio.</div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Patamar 
+                                <br />
+                                de
+                                <br />
+                                Hoje
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">#TIME ADMINISTRATIVO</h2>
+                    <h3 class="section-subheading text-muted">Lideraça que está empresa desde de sua fundação. A empresa sempre motivar seus profissionais, para melhor desenvolvimento dos trabalhos.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
+                            <h4>Kay Garland</h4>
+                            <p class="text-muted" id="kay">Diretora de Designer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/kai.garland.7"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/kayagarland/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
+                            <h4>Larry Parker</h4>
+                            <p class="text-muted" id="larry">Diretor de Mar</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100060671614094"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/_larryparker/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="" />
+                            <h4>Diana Petersen</h4>
+                            <p class="text-muted" id="diana">Diretora de desenvolvimento</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/diana.petersen3"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/dianapetersen174946/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"> Nossa equipe tem um grande comprometimento com os projetos desenvolvidos, toda nossa equipe tem a obrigação de entregar nossos projetos com qualidade e eficiência.Todos nossos projetos são visados em revistos para garantir uma qualidade em nossos serviços!<br>
+                    <br>
+                    <p id="paceiro">
+                        Paceiros estão logo abaixo!
+                    </p> 
+                </p></div>
+                </div>
+            </div>
+        </section>
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Entre em contato!</h2>
+                </div>
+                <form name="singnup" method="post" action="cadastrando.php" onSubmit="return valida_dados(this)">
+                    nome:<input type="text" name="nome"/> <br/> <br/>
+                    sobrenome:<input type="text" name="sobrenome" /> <br/> <br/>
+                    País:<input type="text" name="pais" /> <br/> <br/>
+                    Estado: <input type="text" name="estado" /> <br/> <br/>
+                    Cidade: <input type="text" name="cidade" /> <br/> <br/>
+                    Email: <input type="text" name="email" /> <br/> <br/>
+                    Senha: <input type="password" name="senha" /> <br/> <br/>
+                    <input type="submit" value="Cadastra" />
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100008186437911"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/josue-moreira-48b6131b2/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a class="mr-3" href="/SITE JOSUÉ/pdf/POLITICA_DE_PRIVACIDADE.pdf" target="_blank">Politica e Privacidade</a>
+                        <a href="/SITE JOSUÉ/pdf/termo_de_uso_meifacil.pdf" target="_blank" >Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Loja do 20tão</h2>
+                                    <p class="item-intro text-muted">Projeto desenvolvido em fase de teste!</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                                    <p>O Web site tem o mair de mostra todos os produtos da empresa, todos dde forma simplificada, levando o crescimento da empresa ao crescimento. O Web Site é composto colagens de imagens e vendas direta no site!</p>
+                                    <ul class="list-inline">
+                                        <li>Date:Dezembro - 2012</li>
+                                        <li>Cliente: Loja do Vitão</li>
+                                        <li>Categoria: Roupas</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Vendas de Viagens</h2>
+                                    <p class="item-intro text-muted">WEb site do tipo e-comerce</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                                    <p>Web foi desenvolvido para melhoramento de uma agência de viagens,, que tinha dificuldade ao realizar suas vendas. Com o web site a agência consegue realizar suas vendas tanto física como Oline em sua Plataforma de vendas oline.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>Data: Março - 2019</li>
+                                        <li>Cliente: Transáguia Turismo</li>
+                                        <li>Categoria: E-comecer</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha Projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">ADM NEGÓCIOS</h2>
+                                    <p class="item-intro text-muted"> Gerencia e proteger dados de uma empresa é nossa especialidade..</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                                    <p>O Web Site desenvolvido dessa vez foi para ajudar nas quatro funções administrativas que  são planejar, organizar, dirigir e controlar. Elas compreendem um grande universo de ações que o gestor deve tomar para manter a organização no rumo certo.</p>
+                                    <ul class="list-inline">
+                                        <li>Data: Ferveiro-2020</li>
+                                        <li>Cliente: Ws administração</li>
+                                        <li>Categoria: Controle</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha Projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Shuelter Fotografias</h2>
+                                    <p class="item-intro text-muted">Fotos de alta peformace e qualidade nas edições</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                    <p>Nesse Web site foram feitos conteúdos para um fotógrafo que precisa dominar máquinas, lentes, técnicas de iluminação, enquadramento e ângulos, criar a composição do ambiente, direcionar pessoas e objetos. Também é necessário que o fotógrafo conheça tecnologias digitais de tratamento e manipulação de imagens para fazer a pós-produção de seus trabalhos.</p>
+                                    <ul class="list-inline">
+                                        <li>Data: Julho - 2020</li>
+                                        <li>Cliente: Bruna Produções</li>
+                                        <li>Categoria: Colagem</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha Projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Red Lantern</h2>
+                                    <p class="item-intro text-muted">Atualização de websites e melhorar de funcionalidade</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                    <p> O Web Design envolve trabalhos ligados à layout e design de páginas online assim como produção de conteúdos, embora costume ser mais aplicado à criação de sites. Neste caso, os web designers criam as páginas usando linguagens de marcação como, por exemplo, o HTML.</p>
+                                    <ul class="list-inline">
+                                        <li>Data: Janeiro2021</li>
+                                        <li>Cliente: Uepa-2021</li>
+                                        <li>Categoria: Designer </li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha Projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Arco do Triunfo</h2>
+                                    <p class="item-intro text-muted">--></p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
+                                    <p>O Arco do Triunfo retoma uma tradição da Roma Antiga para celebrar conquistas militares. Napoleão Bonaparte encomendou o monumento em 1806, por conta da vitória francesa na Batalha de Austerlitz.</p>
+                                    <ul class="list-inline">
+                                        <li>Data: Abril-2019</li>
+                                        <li>Cliente: Mural</li>
+                                        <li>Categoria: Colagem</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Fecha Projeto 
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
